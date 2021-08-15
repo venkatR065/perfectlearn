@@ -1,0 +1,37 @@
+{% extends 'contact/base1.html'%}
+{% block content%}
+{% load static %}
+<div class="col-md-6">
+    <div class="white_shd full margin_bottom_30">
+       <div class="full graph_head">
+          <div class="heading1 margin_0">
+             <h2>Striped Table</h2>
+          </div>
+       </div>
+       <div class="table_section padding_infor_info">
+          <div class="table-responsive-sm">
+             <table class="table table-striped">
+                <thead>
+                   <tr>
+                      <th>Title</th>
+                      <th>image</th>
+                      <th>summary</th>
+                   </tr>
+                </thead>
+                
+                {% for s in service.all %}
+                <tbody>
+                    <tr>
+                       <td>{{s.title}}</td>
+                       <td><img src="{{s.image.url}}" height=65px width=65px  ></td>
+                       <td>{{s.summary}}</td>
+                    </tr>
+                    <tr>
+                 </tbody>
+                 {%   endfor %}
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'contact/base1.html'%}
+{% block content%}
+{% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</br>
+<div class="container">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders to a table:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+    
+        <th>images</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for w in c.all %}
+      <tr>
+       
+        <td>{{ w.image.url }}</td>
+      </tr>
+      <tr>
+     
+{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

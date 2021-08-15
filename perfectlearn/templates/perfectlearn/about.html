@@ -56,6 +56,16 @@
                         </div>
 					  </div>
                 </div>
+				{% for course in courses.all %}
+                <div class="col-md-4">
+                    <div class="full blog_img_popular">
+                       <img class="img-responsive" src="{{course.image.url}}" alt="#" /> 
+					   <h4>{{course.course}}</h4>
+
+					   
+                    </div>
+                </div>
+                {% endfor %}
 				<div class="col-md-4">
                     <div class="full blog_img_popular">
 						<img class="img-responsive" src="{% static 'web/images/p1.png'%}" alt="#" /> 

@@ -1,0 +1,19 @@
+{% extends 'contact/base1.html'%}
+{% block content%}
+{% load static %}
+</br>
+<div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="contact_form">
+        <form action=""  method="POST"  enctype="multipart/form-data" >
+            {% csrf_token %}
+            {{ form.as_p }}
+           <fieldset>
+              
+              <div>
+                <input type="submit" name="submit">
+                  </div>
+           </fieldset>
+        </form>
+    </div>
+ </div>
+{% endblock %}

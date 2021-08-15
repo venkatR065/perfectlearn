@@ -11,3 +11,8 @@ class Service(models.Model):
      title =models.CharField(max_length=255)
      image  =models.ImageField(upload_to='images/')
      summary =models.TextField()
+
+class Website(models.Model):
+    
+     image  =models.ImageField(upload_to='images/')
+    

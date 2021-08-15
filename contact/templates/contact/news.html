@@ -1,0 +1,40 @@
+{% extends 'contact/base1.html'%}
+{% block content%}
+{% load static %}
+<br/>
+<table class="table table-striped">
+   <thead>
+     <tr>
+       
+       <th scope="col">Title</th>
+       <th scope="col">image</th>
+       <th scope="col">summary</th>
+     </tr>
+   </thead>
+ 
+     
+     {% for s in news.all %}
+     
+     
+     <tbody>
+         <tr>
+           
+            <td>{{s.title}}</td>
+            <td><img src="{{s.image.url}}" heigth=65px width=65px ></td>
+            <td>{{s.summary}}</td>
+            <td><button type="button" class="btn btn-primary btn-lg active"><a href="{% url 'edit' s.id %}">Edit</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-lg active"><a href="{% url 'deletenews' s.id %} ">Delete</a></button><td>
+         </tr>
+         <tr>
+           
+      </tbody>
+      
+      {%   endfor %}
+      
+
+
+
+  
+ </table>
+ <td><button type="button" class="btn btn-primary btn-lg active"><a href="{% url 'addnews'  %} ">AddCourse</a></button>
+{% endblock %}

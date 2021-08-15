@@ -15,21 +15,25 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+	<link href='{% static "/web/css/pogo-slider.min.css" %}' rel='stylesheet' type='text/css'>
+
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="apple-touch-icon" href="#" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}" />
     <!-- Pogo Slider CSS -->
-    <link rel="stylesheet" href="{% static 'web/css/pogo-slider.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/pogo-slider.min.css' %}" />
     <!-- Site CSS -->
-    <link rel="stylesheet" href="{% static 'web/css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/style.css' %}" />
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'web/css/responsive.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/responsive.css' %}" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'web/css/custom.css'%}" />
+    <link rel="stylesheet" href="{% static 'web/css/custom.css'  %}" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -61,12 +65,12 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        <li><a class="nav-link active" href="{% url 'home'%}">Home</a></li>
-                        <li><a class="nav-link" href="{% url 'about'%}">About</a></li>
-                        <li><a class="nav-link" href="{% url 'services'%}">Courses</a></li>
+                        <li><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+                        <li><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        <li><a class="nav-link" href="{% url 'services' %}">Courses</a></li>
                 
 	
-						<li><a class="nav-link" href="{% url 'contacts'%}">Contact us</a></li>
+						<li><a class="nav-link" href="{% url 'contacts' %}">Contact us</a></li>
                     </ul>
                 </div>
                 <div class="search-box">
@@ -79,11 +83,11 @@
         </nav>
     </header>
     <!-- End header -->
-    <div class="container">
+    
     {% block content %}
     {% endblock %}
 	
-	</div>
+	
     <!-- Start Footer -->
     <footer class="footer-box">
         <div class="container">
@@ -122,6 +126,7 @@
 							 <div class="newsletter_form">
 							    <form action="{% url 'base' %}" method="POST" enctype="multipart/form-data">
 									{% csrf_token %}
+									{{ forms.as_p }}
 							       
 								   <input type="email" placeholder="Your Email" name="email" required />
 								   <button>Submit</button>
@@ -159,6 +164,7 @@
 
     <a href="#" id="scroll-to-top" class="hvr-radial-out"><i class="fa fa-angle-up"></i></a>
 
+	
     <!-- ALL JS FILES -->
     <script src="{% static 'web/js/jquery.min.js' %}"></script>
 	<script src="{% static 'web/js/popper.min.js' %}"></script>

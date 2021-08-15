@@ -10,6 +10,10 @@ class Contact(models.Model):
 
 
 class Email(models.Model): 
-    email = models.EmailField(max_length=255,default=True)
+    email = models.EmailField(max_length=255)
 
+class Banner(models.Model):
+     title =models.CharField(max_length=255)
+     image  =models.ImageField(upload_to='images/')
+     body =models.TextField()
    

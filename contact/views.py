@@ -7,6 +7,9 @@ from courses.models import Course
 from courses.models import New
 from .forms import CourseForm
 from .forms import NewForm
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 
 def base(r):
     if r.method == 'POST':
@@ -76,7 +79,7 @@ def contacts(r):
             return render(r ,'products/contacts.html',{'error':'all  fiels are required to fill'})
 
    return render(r,'perfectlearn/contacts.html')
-    
+@login_required(login_url="/contact/login")    
 def index(r):
     return render(r,'contact/index.html')
 def error(r):
@@ -106,7 +109,23 @@ def icons(r):
 def invoice(r):
     return render(r,'contact/invoice.html')
 def login(r):
-    return render(r,'contact/login.html')
+    if r.method ==  'POST':
+         user = auth.authenticate(username=r.POST['username'],password=r.POST['password'])
+         if user is not None:
+            auth.login(r,user)
+            return redirect('index')
+         else  :
+             return render(r,'contact/login.html',{'error':'username or password incorrect'})      
+        
+    else:
+         return render(r,'contact/login.html')  
+
+
+def logout(r):
+    if r.method == 'POST':
+         auth.logout(r)
+         return redirect('login')           
+    
 def map(r):
     return render(r,'contact/map.html')
 def media_gallery(r):

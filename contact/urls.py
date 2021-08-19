@@ -22,6 +22,7 @@ urlpatterns = [
     path('invoice', views.invoice,name='invoice'),
     path('map', views.map,name='map'),
     path('login', views.login,name='login'),
+    path('logout', views.logout,name='logout'),
     path('media_gallery', views.media_gallery,name='media_gallery'),
     path('price', views.price,name='price'),
     path('profile', views.profile,name='profile'),

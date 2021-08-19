@@ -46,12 +46,20 @@
                         <img width="210" src="{% static 'private/images/logo/logo.png'%}" alt="#" />
                      </div>
                   </div>
+
+
+                  {%  if error%}
+                  {{error}}
+                  {% endif %}
+
                   <div class="login_form">
-                     <form>
+                     <form  method="POST" action="{% url 'login' %}"  >
+                        {% csrf_token %}
                         <fieldset>
+                           
                            <div class="field">
-                              <label class="label_field">Email Address</label>
-                              <input type="email" name="email" placeholder="E-mail" />
+                              <label class="label_field">Username</label>
+                              <input type="text" name="username" placeholder="username" />
                            </div>
                            <div class="field">
                               <label class="label_field">Password</label>

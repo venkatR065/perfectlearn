@@ -16,7 +16,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
       
 
-      
+      <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css">
       <!-- site icon -->
       <link rel="icon" href="{% static 'private/images/fevicon.png' %}" type="image/png" />
@@ -50,7 +50,7 @@
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="{% url 'index' %}"><img class="logo_icon img-responsive" src="{% static 'private/images/logo/logo_icon.png' %}" alt="#" /></a>
+                           <a href="{% url 'index' %}"><img class="logo_icon img-responsive" src="{% static  'private/images/logo/logo.png' %}" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">
@@ -140,18 +140,27 @@
                               <div class="right_topbar">
                                  <div class="icon_info">
                                     <ul>
-                                       <li><a href="#"><i class=" fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                       <li><a href="#"><span class="oi oi-bell"></span><span class="badge">2</span></a></li>
                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-                                       <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                       <li><a href="#"><span class="oi oi-envelope-closed"></span><span class="badge">3</span></a></li>
                                     </ul>
                                     <ul class="user_profile_dd">
                                        <li>
-                                          <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{% static 'private/images/layout_img/user_img.jpg'%}" alt="#" /><span class="name_user">John David</span></a>
+                                          <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{% static 'private/images/layout_img/user_img.jpg'%}" alt="#" /><span class="name_user">John David<span class="oi oi-chevron-bottom"></span></span></a>
                                           <div class="dropdown-menu">
                                              <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
                                              <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
                                              <a class="dropdown-item" href="help.html">Help</a>
-                                             <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                             {% if  user.is_authenticated %}
+                                             <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}"  onclick=""><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            
+                                             <form  id="logout" method="POST"  action="{% url  'logout' %}">
+                                              {% csrf_token %}
+                                              
+                                             </form>
+                                             {% endif %}
+                                          
+                                          
                                           </div>
                                        </li>
                                     </ul>
